@@ -60,6 +60,11 @@
 		generatePassword();
 	});
 
+	//Caja de texto de contraseña para copiar la contraseña
+	app.elements.namedItem('input-password').addEventListener('click', function(){
+		copyPassword();
+	});
+
 	/* ---------------------------------------- Functions ---------------------------------------- */
 	function btnToggle(element) {
 		element.classList.toggle('false');
@@ -85,4 +90,15 @@
 		}
 		app.elements.namedItem('input-password').value = password;
 	}
+
+	function copyPassword(){
+		app.elements.namedItem('input-password').select();
+		document.execCommand('copy');
+		document.getElementById('copy-alert').classList.add('active');
+		setTimeout(function(){
+			document.getElementById('copy-alert').classList.remove('active');
+		}, 2000);
+	}
+
+	generatePassword();
 }())
