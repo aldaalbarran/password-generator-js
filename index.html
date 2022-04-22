@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador de contraseñas</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <div class="container">
+		<h1>Generador de Contraseñas</h1>
+		<form action="" class="app" id="app">
+			<div class="row number-characters">
+				<div class="col">
+					<label for="number-characters">Número de caracteres:</label>
+				</div>
+				<div class="col buttons">
+					<div>
+						<button class="btn" id="btn-minus"><i class="fas fa-minus"></i></button>
+					</div>
+					<div>
+						<input type="text" id="number-characters" readonly value="12">
+					</div>
+					<div>
+						<button class="btn" id="btn-plus"><i class="fas fa-plus"></i></button>
+					</div>
+				</div>
+			</div>
+			<div class="row symbols">
+				<div class="col">
+					<label for="symbols">¿Incluir Símbolos?</label>
+				</div>
+				<div class="col">
+					<button class="btn" id="btn-symbols"><i class="fas fa-check"></i></button>
+				</div>
+			</div>
+			<div class="row numbers">
+				<div class="col">
+					<label for="numbers">¿Incluir Números?</label>
+				</div>
+				<div class="col">
+					<button class="btn" id="btn-numbers"><i class="fas fa-check"></i></button>
+				</div>
+			</div>
+			<div class="row capital-letters">
+				<div class="col">
+					<label for="capital-letters">¿Incluir Mayúsculas?</label>
+				</div>
+				<div class="col">
+					<button class="btn" id="btn-capital-letters"><i class="fas fa-check"></i></button>
+				</div>
+			</div>
+			<div class="row generate">
+				<div class="col">
+					<button class="btn btn-generate" id="btn-generate">Generar <i class="fas fa-lock"></i></button>
+				</div>
+				<div class="col">
+					<input type="text" class="input-password" id="input-password" readonly value="1&dsfvD22FV%">
+				</div>
+			</div>
+			<div class="row alert">
+				<div class="col">
+					<div class="copy-alert" id="copy-alert">
+						<p><i class="fas fa-copy"></i> Texto Copiado</p>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+    <script src="./js/main.js"></script>
+</body>
+</html>
