@@ -37,4 +37,28 @@
 		}
 	});
 
+	//Botón de símbolos dinámico
+	app.elements.namedItem('btn-symbols').addEventListener('click', function(){
+		btnToggle(this);
+		config.symbols = !config.symbols;
+	});
+
+	//Botón de numeros dinámico
+	app.elements.namedItem('btn-numbers').addEventListener('click', function(){
+		btnToggle(this);
+		config.numbers = !config.numbers;
+	});
+
+	//Botón de mayúsculas dinámico
+	app.elements.namedItem('btn-capital-letters').addEventListener('click', function(){
+		btnToggle(this);
+		config.capitalLetters = !config.capitalLetters;
+	});
+
+	/* ---------------------------------------- Functions ---------------------------------------- */
+	function btnToggle(element){
+		element.classList.toggle('false');
+		element.childNodes[0].classList.toggle('fa-check');
+		element.childNodes[0].classList.toggle('fa-times');
+	}
 }())
