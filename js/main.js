@@ -55,10 +55,27 @@
 		config.capitalLetters = !config.capitalLetters;
 	});
 
+	//Botón para generar contraseña
+	app.elements.namedItem('btn-generate').addEventListener('click', function(){
+		generatePassword();
+	});
+
 	/* ---------------------------------------- Functions ---------------------------------------- */
 	function btnToggle(element){
 		element.classList.toggle('false');
 		element.childNodes[0].classList.toggle('fa-check');
 		element.childNodes[0].classList.toggle('fa-times');
+	}
+
+	function generatePassword() {
+		var finalCharacters = '';
+		var password = '';
+
+		for(property in config){
+			if (config[property] == true) {
+				finalCharacters += characters[property] + ' ';
+			}
+		}
+		console.log(finalCharacters);
 	}
 }())
