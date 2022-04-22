@@ -1,4 +1,4 @@
-(function(){
+(function () {
 	var app = document.getElementById('app');
 	var inputCharacters = document.getElementById('number-characters');
 
@@ -19,18 +19,18 @@
 
 	/* ---------------------------------------- Events ------------------------------ */
 	//Evitar refresh en la página
-	app.addEventListener('submit', function(e){
+	app.addEventListener('submit', function (e) {
 		e.preventDefault();
 	});
 
 	//Aumentar 1 cada que se presiona el botón +
-	app.elements.namedItem('btn-plus').addEventListener('click', function(){
+	app.elements.namedItem('btn-plus').addEventListener('click', function () {
 		config.characters++;
 		inputCharacters.value = config.characters;
 	});
 
 	//Disminuir 1 cada que se presiona el botón -
-	app.elements.namedItem('btn-minus').addEventListener('click', function(){
+	app.elements.namedItem('btn-minus').addEventListener('click', function () {
 		if (config.characters > 1) {
 			config.characters--;
 			inputCharacters.value = config.characters;
@@ -38,30 +38,30 @@
 	});
 
 	//Botón de símbolos dinámico
-	app.elements.namedItem('btn-symbols').addEventListener('click', function(){
+	app.elements.namedItem('btn-symbols').addEventListener('click', function () {
 		btnToggle(this);
 		config.symbols = !config.symbols;
 	});
 
 	//Botón de numeros dinámico
-	app.elements.namedItem('btn-numbers').addEventListener('click', function(){
+	app.elements.namedItem('btn-numbers').addEventListener('click', function () {
 		btnToggle(this);
 		config.numbers = !config.numbers;
 	});
 
 	//Botón de mayúsculas dinámico
-	app.elements.namedItem('btn-capital-letters').addEventListener('click', function(){
+	app.elements.namedItem('btn-capital-letters').addEventListener('click', function () {
 		btnToggle(this);
 		config.capitalLetters = !config.capitalLetters;
 	});
 
 	//Botón para generar contraseña
-	app.elements.namedItem('btn-generate').addEventListener('click', function(){
+	app.elements.namedItem('btn-generate').addEventListener('click', function () {
 		generatePassword();
 	});
 
 	/* ---------------------------------------- Functions ---------------------------------------- */
-	function btnToggle(element){
+	function btnToggle(element) {
 		element.classList.toggle('false');
 		element.childNodes[0].classList.toggle('fa-check');
 		element.childNodes[0].classList.toggle('fa-times');
@@ -71,11 +71,18 @@
 		var finalCharacters = '';
 		var password = '';
 
-		for(property in config){
+		for (property in config) {
 			if (config[property] == true) {
 				finalCharacters += characters[property] + ' ';
 			}
 		}
-		console.log(finalCharacters);
+
+		finalCharacters = finalCharacters.trim();
+		finalCharacters = finalCharacters.split(' ');
+
+		for (var i = 0; i < config.characters; i++) {
+			password += finalCharacters[Math.floor(Math.random() * finalCharacters.length)];
+		}
+		app.elements.namedItem('input-password').value = password;
 	}
 }())
